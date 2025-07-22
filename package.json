@@ -1,0 +1,52 @@
+{
+  "name": "yuri",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "vite build && tsc",
+    "dist": "electron-builder",
+    "start": "electron .",
+    "compile": "tsc",
+    "dev": "vite"
+  },
+  "build": {
+    "appId": "com.yuri.handler",
+    "productName": "Yuri",
+    "publish": [
+      {
+        "provider": "github"
+      }
+    ],
+    "files": [
+      "dist/**/*",
+      "yuri.*",
+      "index.html",
+      "installer-hooks"
+    ],
+    "mac": {
+      "target": "dmg",
+      "icon": "yuri.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "yuri.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "yuri.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false,
+      "include": "installer-hooks/uninstallPrompt.nsh"
+    }
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.13.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.0",
+    "@vitejs/plugin-react": "^4.1.0"
+  }
+}

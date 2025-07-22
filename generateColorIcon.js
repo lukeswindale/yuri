@@ -1,0 +1,1 @@
+// generateColorIcon.js placeholder
